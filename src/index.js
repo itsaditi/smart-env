@@ -1,12 +1,17 @@
 // import statements for ESM
-import { readFile } from './parser.js';
+import * as parser from './parser.js';
 import path from 'path';
 import {info, debug} from './logger.js';
 
-export function init(input = {}) {
+export async function init(input = {}) {
     info("Initiating ...");
-    // const envPath = input.path || path.resolve(process.cwd());
-    // parser.readFile(input.path);
+    const envPath = input.path || path.resolve(process.cwd());
+    
+    info(`Path: ${envPath}`);
+
+    const envFilePath = path.join(envPath, '.env'); // Ensure the path points to a file
+    const dataMap = await parser.parse(envFilePath);
+    console.log('DataMap - ', dataMap);
 
     // Find .env file
     return;
