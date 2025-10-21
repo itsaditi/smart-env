@@ -1,0 +1,26 @@
+{
+  "name": "smart-env",
+  "version": "1.0.0",
+  "description": "> A safer, smarter `.env` manager for Node.js and TypeScript projects.   > Validate, type, and secure your environment variables — with zero hassle.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index",
+    "dev": "nodemon src/index",
+    "start-parser": "node src/parser"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsaditi/smart-env.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itsaditi/smart-env/issues"
+  },
+  "homepage": "https://github.com/itsaditi/smart-env#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}
