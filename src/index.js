@@ -1,13 +1,14 @@
-require('dotenv');
-console.log(process.env);
+// import statements for ESM
+import { readFile } from './parser.js';
+import path from 'path';
+import {info, debug} from './logger.js';
 
-function init() {
-    process.env = {
-        ...process.env,
-        test: 'testKey',
-    }
-};
+export function init(input = {}) {
+    info("Initiating ...");
+    // const envPath = input.path || path.resolve(process.cwd());
+    // parser.readFile(input.path);
 
-module.exports = {
-    init,
-};
+    // Find .env file
+    return;
+}
+

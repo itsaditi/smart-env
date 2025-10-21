@@ -1,6 +1,16 @@
+import fs from 'fs';
+import path from 'path';
 
-console.log('Before init : ', process.env);
+// Read file
+export function readFile(filePath) {
 
-require('./index').init();
+    const absolutePath = path.resolve(filePath);
 
-console.log('After init: ', process.env);
+    fs.readFile(absolutePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            return;
+        }
+        console.log('File content:', data);
+    })
+}
