@@ -8,7 +8,7 @@
     "start": "eslint . --fix && jest && node src/index",
     "dev": "eslint . --fix && jest && nodemon src/index",
     "start-parser": "eslint . --fix && jest && node src/parser",
-    "example": "eslint . --fix && jest && node src/example",
+    "example": "jest && node src/example",
     "test": "jest",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"

@@ -1,16 +1,43 @@
 import fs from 'fs';
 import path from 'path';
 import { NOENVFILE } from './constants.js';
-import { info } from './logger.js';
+import { info, error } from './logger.js';
 
 export async function parse(filePath) {
-    const dataArray = await readFile(filePath);
-
-    const dataMap = convertStringToKeyValue(dataArray);
-    info(`Found ${dataMap.size} keys`);
-
-    return dataMap;
+    const dataObj =  await parseFromMultipleFiles(filePath);
+    info(`Found ${Object.keys(dataObj).length} keys`);
+    return dataObj;
 }
+
+function parseFromMultipleFiles(filePath) {
+    let dataObj = {};
+    return new Promise((resolve, reject) => {
+        fs.readdir(filePath, async (err, files) => {
+            if (err) {
+                if (err.message.includes(NOENVFILE)) {
+                    info('No .env file found. Ending operation.');
+                } else {
+                    console.error('Error reading file:', err);
+                }
+                return;
+            }
+    
+            const matchedFiles = files.filter(file => file.startsWith('.env'));
+            info(`MatchedFiles - ${files}`);
+            info(`FilePath - ${filePath}`)
+            for (const file of matchedFiles) {
+                const obj = await readFile(filePath + '/' + file);
+                dataObj = {
+                    ...dataObj,
+                    ...convertStringToKeyValue(obj)
+                }
+            }
+            resolve(dataObj);
+        });
+        
+    })
+}
+
 
 // Read file
 function readFile(filePath) {
@@ -23,7 +50,6 @@ function readFile(filePath) {
                 } else {
                     console.error('Error reading file:', err);
                 }
-                reject(err);
                 return;
             }
             resolve(data.split('\n'));
@@ -32,7 +58,7 @@ function readFile(filePath) {
 }
 
 function convertStringToKeyValue(inputArray) {
-    const map = new Map();
+    const obj = {};
     
     for (const element of inputArray) {
         if (isComment(element)) {
@@ -40,11 +66,11 @@ function convertStringToKeyValue(inputArray) {
         }
 
         const splitKeyValue = element.split("=");
-        const key = splitKeyValue[0];
-        const value = splitKeyValue[1];
-        map.set(key, sanitizeValue(value));
+        const key = new String(splitKeyValue[0]).trim();
+        const value = new String(splitKeyValue[1]).trim();
+        obj[key] = sanitizeValue(value);
     }
-    return map;
+    return obj;
 }
 
 /**

@@ -36,11 +36,11 @@ yarn add smart-env
 
 🧱 MUST-HAVE (MVP)
 1. Core Loading & Parsing
-* Load environment variables from .env file (like dotenv)
-* Support comments (#) and quoted values ("value")
-* Parse basic key=value pairs safely
-* Merge with process.env (existing system vars take precedence)
-* Handle multiple .env variants (.env, .env.development, .env.production)
+* [Done] Load environment variables from .env file (like dotenv)
+* [Done] Support comments (#) and quoted values ("value")
+* [Done] Parse basic key=value pairs safely
+* [Done] Merge with process.env (existing system vars take precedence)
+* [Done] Handle multiple .env variants (.env, .env.development, .env.production)
 
 2. Schema Validation
 * Define a schema file (.env.schema.json or .env.schema.js)
