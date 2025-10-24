@@ -1,7 +1,7 @@
 // import statements for ESM
 import * as parser from './parser.js';
 import path from 'path';
-import {info, debug} from './logger.js';
+import { info } from './logger.js';
 
 export async function init(input = {}) {
     info("Initiating ...");

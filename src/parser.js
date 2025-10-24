@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { NOENVFILE } from './constants.js';
-import { info, debug } from './logger.js';
+import { info } from './logger.js';
 
 export async function parse(filePath) {
     const dataArray = await readFile(filePath);
@@ -64,3 +64,7 @@ function isComment(str) {
 function sanitizeValue(value) {
     return new String(value).replaceAll('"', '');
 }
+
+export { readFile, convertStringToKeyValue };
+
+export default parse;

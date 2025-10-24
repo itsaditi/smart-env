@@ -5,11 +5,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/index",
-    "dev": "nodemon src/index",
-    "start-parser": "node src/parser",
-    "example": "node src/example",
-    "test": "jest"
+    "start": "eslint . --fix && jest && node src/index",
+    "dev": "eslint . --fix && jest && nodemon src/index",
+    "start-parser": "eslint . --fix && jest && node src/parser",
+    "example": "eslint . --fix && jest && node src/example",
+    "test": "jest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -26,5 +28,18 @@
     "chalk": "^5.6.2",
     "dotenv": "^17.2.3",
     "jest": "^30.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@eslint/js": "^9.38.0",
+    "babel-jest": "^30.2.0",
+    "eslint": "^9.38.0",
+    "globals": "^16.4.0",
+    "ts-node": "^10.9.2",
+    "typescript-eslint": "^8.46.2"
+  },
+  "imports": {
+    "#ansi-styles": "./node_modules/ansi-styles/index.js"
   }
 }

@@ -1,4 +1,4 @@
-import parse from '../src/parser.js';
+import parse, { readFile, convertStringToKeyValue } from '../src/parser.js';
 import fs from 'fs';
 import path from 'path';
 
@@ -20,7 +20,7 @@ describe('parser.js', () => {
             callback(null, mockEnvData);
         });
 
-        const result = await readFile(path.resolve('.env'));
+        const result = convertStringToKeyValue(await readFile(path.resolve('.env')));
         expect(result.get('KEY1')).toBe('value1');
         expect(result.get('KEY2')).toBe('value2');
     });
