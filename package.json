@@ -21,7 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/itsaditi/smart-env.git"
   },
-  "keywords": [],
+  "keywords": ["env", "dotenv", "configuration", "node", "environment-variables", "validation"],
   "author": "",
   "license": "MIT",
   "bugs": {
