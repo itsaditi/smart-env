@@ -1,6 +1,6 @@
 {
   "name": "@aptd/smart-env",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "> A safer, smarter `.env` manager for Node.js and TypeScript projects.   > Validate, type, and secure your environment variables — with zero hassle.",
   "main": "index.js",
   "type": "module",
@@ -21,7 +21,14 @@
     "type": "git",
     "url": "git+https://github.com/itsaditi/smart-env.git"
   },
-  "keywords": ["env", "dotenv", "configuration", "node", "environment-variables", "validation"],
+  "keywords": [
+    "env",
+    "dotenv",
+    "configuration",
+    "node",
+    "environment-variables",
+    "validation"
+  ],
   "author": "",
   "license": "MIT",
   "bugs": {
