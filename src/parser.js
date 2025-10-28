@@ -88,7 +88,8 @@ function isComment(str) {
  * @param {value} Input value  
  */
 function sanitizeValue(value) {
-    return new String(value).replaceAll('"', '');
+    const sanitizedString = new String(value).replaceAll('"', '');
+    return sanitizedString;
 }
 
 export { readFile, convertStringToKeyValue };
