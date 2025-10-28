@@ -41,6 +41,8 @@ yarn add smart-env
 * [Done] Parse basic key=value pairs safely
 * [Done] Merge with process.env (existing system vars take precedence)
 * [Done] Handle multiple .env variants (.env, .env.development, .env.production)
+* [Done] Missing keys will not cause silent runtime errors due to `getEnv` function.
+* [Done] Typed values are returned by `getEnv` function.
 
 2. Schema Validation
 * Define a schema file (.env.schema.json or .env.schema.js)
