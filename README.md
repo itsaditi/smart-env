@@ -32,6 +32,40 @@ pnpm add smart-env
 yarn add smart-env
 ```
 
+## Usage
+
+### Import and Initialization
+```javascript
+import { init, getEnv } from './index.js';
+
+// Initialize smart-env (you can pass a config with path if needed)
+// await init({ path: './secret-manager' });
+await init();
+```
+> init() merges loaded environment variables into process.env safely. Existing system environment variables take precedence.
+
+### Access enviornment variables safely
+
+```javascript
+const s3Key = getEnv("S3_BUCKET");
+console.log(s3Key);
+
+const awsKey2 = getEnv("DAMAPIKEY");
+console.log(awsKey2);
+
+const isProject = getEnv("ISPROJECT");
+console.log(typeof isProject, isProject);
+
+const num = getEnv("NUM");
+console.log(typeof num, num);
+
+const num2 = getEnv("NUM2");
+console.log(typeof num2, num2);
+```
+* `getEnv` throws an error immediately if the key was not loaded via init().
+* Ensures no silent runtime errors from missing keys.
+* `getEnv` will parse booleans or numbers
+
 ## Good to Have
 
 🧱 MUST-HAVE (MVP)
