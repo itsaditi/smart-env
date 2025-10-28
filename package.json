@@ -1,5 +1,5 @@
 {
-  "name": "@asp/smart-env",
+  "name": "@aptd/smart-env",
   "version": "1.0.0",
   "description": "> A safer, smarter `.env` manager for Node.js and TypeScript projects.   > Validate, type, and secure your environment variables — with zero hassle.",
   "main": "index.js",
