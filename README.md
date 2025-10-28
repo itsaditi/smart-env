@@ -1,5 +1,8 @@
 # 🧩 smart-env
 
+![npm](https://img.shields.io/npm/v/@aptd/smart-env)
+![license](https://img.shields.io/npm/l/@aptd/smart-env)
+
 > A safer, smarter `.env` manager for Node.js and TypeScript projects.  
 > Validate, type, and secure your environment variables — with zero hassle.
 
