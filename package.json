@@ -4,6 +4,10 @@
   "description": "> A safer, smarter `.env` manager for Node.js and TypeScript projects.   > Validate, type, and secure your environment variables — with zero hassle.",
   "main": "index.js",
   "type": "module",
+  "files": [
+    "src",
+    "README.md"
+  ],
   "scripts": {
     "start": "eslint . --fix && jest && node src/index",
     "dev": "eslint . --fix && jest && nodemon src/index",
